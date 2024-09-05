@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ninja_quotes/class/quote.dart';
 
 void main() => runApp(
       MaterialApp(
@@ -14,11 +15,13 @@ class QuoteList extends StatefulWidget {
 }
 
 class _QuoteListState extends State<QuoteList> {
-  List<String> quotes = [
-    'Ai Jesus!',
-    'Im a genius',
-    'What could possibly go wrong?',
+  List<Quote> quotes = [
+    Quote(text: 'Ai Jesus!', author: 'Eduardo'),
+    Quote(text: 'What could possibly go wrong?', author: "Jeramy Clarkson"),
+    Quote(text: "Sou um autocarro.", author: "Diogo"),
   ];
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +33,7 @@ class _QuoteListState extends State<QuoteList> {
         backgroundColor: Colors.redAccent,
       ),
       body: Column(
-        children: quotes.map((quote) => Text(quote)).toList(),
+        children: quotes.map((quote) => Text(quote.text)).toList(),
       ),
     );
   }
