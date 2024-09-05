@@ -3,8 +3,9 @@ import 'package:flutter_ninja_quotes/class/quote.dart';
 
 class QuoteCard extends StatelessWidget {
   final Quote quote;
+  final void Function()? cbDelete;
 
-  QuoteCard({required this.quote});
+  QuoteCard({required this.quote, required this.cbDelete});
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +32,14 @@ class QuoteCard extends StatelessWidget {
                 fontSize: 14,
                 color: Colors.grey[600],
               ),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            ElevatedButton.icon(
+              onPressed: cbDelete,
+              label: Text("Delete Quote"),
+              icon: Icon(Icons.delete),
             )
           ],
         ),
