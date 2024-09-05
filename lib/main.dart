@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ninja_quotes/class/quote.dart';
+import 'package:flutter_ninja_quotes/components/card.dart';
 
 void main() => runApp(
       MaterialApp(
@@ -21,37 +22,6 @@ class _QuoteListState extends State<QuoteList> {
     Quote(text: "Sou um autocarro.", author: "Diogo"),
   ];
 
-  Widget quoteTemplate(Quote quote) {
-    return Card(
-      margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              quote.text,
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.grey[600],
-              ),
-            ),
-            SizedBox(
-              height: 6,
-            ),
-            Text(
-              quote.author,
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.grey[600],
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +32,7 @@ class _QuoteListState extends State<QuoteList> {
         backgroundColor: Colors.redAccent,
       ),
       body: Column(
-          children: quotes.map((quote) => quoteTemplate(quote)).toList()),
+          children: quotes.map((quote) => QuoteCard(quote: quote)).toList()),
     );
   }
 }
